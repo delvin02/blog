@@ -1,12 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
-  <title>{% block title %} {% endblock %}</title>
+  <title>Delvin {% block title %} {% endblock %}</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="{% static 'img/tab/trident.svg' %}">
@@ -15,9 +13,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&amp;display=swap">
-  <link rel="stylesheet" href="{% static 'css/uikit-custom.min.css' %}"/>
-  <link rel="stylesheet" href="{% static 'css/app.css' %}"/>
-
+  <link rel="stylesheet" href="{% static 'css/uikit-custom.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/vue-fullpage.js/dist/style.css"/>
   <!-- VUEJS
   {% if env_name == 'production' %}
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -25,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   {% endif %}-->
 
-  <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet> 
+  <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet>
 </head>
 
 <body id="body-app" class="yb-dark-skin uk-light">
@@ -35,16 +33,12 @@
       <div data-uk-spinner></div>
     </div>
   </div>
-  <!-- end page loader -->
 
   <!-- VUE test -->
-  <div id="app"></div>
 
-  <!-- main header -->
   <header class="yb-main-header" id="main-header">
-
     <!-- main menu -->
-    <nav class="yb-main-menu " id="main-menu">
+    <nav class="yb-main-menu" id="main-menu">
       <div class="uk-container" data-uk-navbar>
         <div class="uk-navbar-left">
           <a class="yb-logo uk-navbar-item uk-logo" href="dark-index.html"><span>Delvin</span></a>
@@ -57,42 +51,30 @@
         </div>
         <div class="yb-menu-toggle-wrapper" id="menucollapse">
           <div class="uk-navbar-center">
-            <ul class="uk-navbar-nav">
+            <ul class="uk-navbar-nav" data-uk-scrollspy-nav="closest: li; scroll: false; offset: 79 ">
               <li>
-                <a class="yb-inner-link" href="dark-index.html#home"> Home </a>
+                <a class="yb-inner-link" href="#"> Blog </a>
               </li>
               <li>
-                <a class="yb-inner-link" href="dark-index.html#about"> About</a>
-              </li>
-              <li>
-                <a class="yb-inner-link" href="dark-index.html#resume"> Resume </a>
-              </li>
-              <li>
-                <a class="yb-inner-link" href="dark-index.html#portfolio"> Portfolio </a>
-              </li>
-              <li class="uk-active">
-                <a class="yb-inner-link" href="dark-blog-list.html"> Blog </a>
-              </li>
-              <li>
-                <a class="yb-inner-link" href="dark-index.html#contact"> Contact </a>
+                <a class="yb-inner-link" href="#"> About</a>
               </li>
             </ul>
           </div>
           <div class="uk-navbar-right">
             <ul class="uk-navbar-nav yb-social-icons">
               <li>
-                <a href="#">
+                <a href="https://www.facebook.com/0327Eve/">
                   <span class="uk-icon " data-uk-icon="icon: facebook"></span>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://www.instagram.com/dlvn.n/?hl=en">
                   <span class="uk-icon" data-uk-icon="icon: instagram"></span>
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <span class="uk-icon" data-uk-icon="icon: twitter"></span>
+                <a href="https://wa.link/442i6e">
+                  <span class="uk-icon" data-uk-icon="icon: whatsapp"></span>
                 </a>
               </li>
             </ul>
@@ -100,7 +82,7 @@
         </div>
       </div>
     </nav><!-- end main menu -->
-  </header><!-- end main header -->
+  </header>
   <!-- main content  -->
   {% block body %}
   {% endblock %}
@@ -118,7 +100,7 @@
           <div class="uk-margin-remove uk-text-left@s">
             &copy; Delvin <script>
               document.write(new Date().getFullYear());
-          </script> 
+            </script>
 
           </div>
           <div class="uk-margin-remove uk-text-right@s">
@@ -136,11 +118,16 @@
   <!-- js -->
   <script src="{% static 'js/plugins.min.js' %}"></script>
   <script src="{% static 'js/app.js' %}"></script>
-  
+
   <!-- VUEJS -->
   <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
-  <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script> 
+  <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
 
+  <!-- Fullpage-->
+  <script type="module" src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.es.js"></script>
+
+  {% block vue %}
+  {% endblock %}
 </body>
 
 
